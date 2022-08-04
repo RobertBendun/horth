@@ -30,7 +30,7 @@ For usage with RebindableSyntax see [app/ExamplesRebindable.hs](./app/ExamplesRe
 
 ### Definition of a word
 
-Word is any function from `Horth.State` to `Horth.State`, where `State` is `IO (HList xs)`. Words are stack transformations with side effects.
+Word is any function from `Horth.State` to `Horth.State`, where `State` is `IO (HList xs)`. Essentialy words are stack transformations with side effects.
 
 ### Word composition
 
