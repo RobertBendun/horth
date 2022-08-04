@@ -10,6 +10,7 @@ module Horth.Basic
   , Horth.Basic.filter
   , Horth.Basic.less
   , Horth.Basic.neq
+  , Horth.Basic.not
   , Horth.Basic.println
   , Horth.Basic.sub
   , Horth.Basic.swap
@@ -19,6 +20,9 @@ module Horth.Basic
 import Horth.ControlFlow
 import Horth.Language
 import Control.Monad (filterM)
+
+not :: Shape '[Bool] '[Bool]
+not = call1 Prelude.not
 
 length :: Shape '[[a]] '[Int]
 length = call1 Prelude.length
