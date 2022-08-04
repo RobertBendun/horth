@@ -1,17 +1,18 @@
-{-# LANGUAGE DataKinds  #-}
 module Main where
 
-import Examples
+import ExamplesRebindable as Examples
 
-import Horth.Language (State, run)
+import Horth
 
-example :: String -> (State '[] -> State s) -> IO ()
-example message prog = do
+example :: String -> (State a -> State b) -> State a -> IO ()
+example message prog init = do
   putStrLn message
-  run prog
+  prog init
   return ()
+
+empty = return HNil
 
 main :: IO ()
 main = do
-  example "Counting from 1 to 10"     count1to10
-  example "Why concatenative matters" whyConcatenative
+  example "Counting from 1 to 10"     count1to10 empty
+  example "Why concatenative matters" whyConcatenative (literal [1..5] empty)
